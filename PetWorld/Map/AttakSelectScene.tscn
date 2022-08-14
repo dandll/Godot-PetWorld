@@ -1,0 +1,140 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Map/Map01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/AttakSelectScene.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Font/simhei.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/Font/simhei.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 12
+outline_size = 1
+outline_color = Color( 0.803922, 0.756863, 0.254902, 1 )
+use_filter = true
+font_data = SubResource( 3 )
+
+[node name="AttakSelectScene" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Map01" parent="." instance=ExtResource( 1 )]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 80.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 2 )
+text = "第一关"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 80.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( -304, -112 )
+custom_fonts/font = SubResource( 2 )
+text = "第二关"
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 80.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( -304, -112 )
+custom_fonts/font = SubResource( 2 )
+text = "第三关"
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 136.0
+margin_right = 80.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( -304, -112 )
+custom_fonts/font = SubResource( 2 )
+text = "第四关"
+
+[node name="Button5" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 176.0
+margin_right = 80.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( -304, -112 )
+custom_fonts/font = SubResource( 2 )
+text = "第五关"
+
+[node name="ButtonFanHui" type="Button" parent="."]
+margin_left = 104.0
+margin_top = 232.0
+margin_right = 176.0
+margin_bottom = 264.0
+rect_pivot_offset = Vector2( -304, -112 )
+custom_fonts/font = SubResource( 2 )
+text = "返回"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 16.0
+margin_right = 200.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 4 )
+text = "奖励灵兽泡泡
+奖励10级装备"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 4 )
+text = "奖励20级装备"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 96.0
+margin_right = 200.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 4 )
+text = "奖励队友-大斧头
+奖励30级装备"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 136.0
+margin_right = 200.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 4 )
+text = "奖励队友-肌肉角斗士
+奖励40级装备"
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 176.0
+margin_right = 200.0
+margin_bottom = 213.0
+custom_fonts/font = SubResource( 4 )
+text = "奖励50级装备
+奖励神兽"
+
+[node name="Button6" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 232.0
+margin_right = 80.0
+margin_bottom = 264.0
+rect_pivot_offset = Vector2( -304, -112 )
+custom_fonts/font = SubResource( 2 )
+disabled = true
+text = "下一页"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="ButtonFanHui" to="." method="_on_ButtonFanHui_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_Button5_pressed"]

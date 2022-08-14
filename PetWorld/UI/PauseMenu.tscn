@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/PauseMenu.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.890196 )
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+visible = true
+margin_left = 37.0
+margin_top = 57.0
+margin_right = 149.0
+margin_bottom = 223.0
+
+[node name="Label" type="Label" parent="PopupPanel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 108.0
+margin_bottom = 162.0
+text = "这是我第一个发布的游戏
+感谢您的游玩，有建议可以留言
+感谢分享知识的UP主，
+感谢免费资源作者，
+后面我会整理名单放上来"
+autowrap = true
+
+[node name="btnResume" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 77.0
+margin_right = 104.0
+margin_bottom = 92.0
+text = "继续"
+
+[node name="btnQuit" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 104.0
+margin_right = 104.0
+margin_bottom = 118.0
+text = "主界面"
+
+[node name="Transitions" type="AnimationPlayer" parent="."]
+anims/show = SubResource( 1 )
+
+[node name="btnQuit2" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 149.0
+margin_right = 106.0
+margin_bottom = 166.0
+text = "音乐:暂无"
+
+[node name="btnQuit3" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 175.0
+margin_right = 106.0
+margin_bottom = 192.0
+text = "音效:暂无"
+
+[node name="btnAbout" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 203.0
+margin_right = 121.0
+margin_bottom = 220.0
+text = "关于"
+
+[connection signal="pressed" from="btnResume" to="." method="_on_btnResume_pressed"]
+[connection signal="pressed" from="btnQuit" to="." method="_on_btnQuit_pressed"]
+[connection signal="pressed" from="btnAbout" to="." method="_on_btnAbout_pressed"]

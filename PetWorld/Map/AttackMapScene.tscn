@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://PlayerControl/joystick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MapBase/Map02.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprite/Player01.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Map/AttackMapScene.gd" type="Script" id=4]
+[ext_resource path="res://Sprite/EmeyToAttack/EmeyToAttack01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprite/EmeyToAttack/EmeyToAttack02.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Font/simhei.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
+
+[node name="AttackMapScene" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Map02" parent="." instance=ExtResource( 2 )]
+
+[node name="Player01" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 40 )
+
+[node name="Camera2D" type="Camera2D" parent="Player01"]
+position = Vector2( 8, -8 )
+rotating = true
+current = true
+limit_left = -100
+limit_top = -60
+limit_right = 530
+limit_bottom = 400
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="joystick" parent="CanvasLayer" instance=ExtResource( 1 )]
+position = Vector2( 40, 200 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="EmeyToAttack01" parent="." instance=ExtResource( 5 )]
+position = Vector2( 64, 88 )
+emeyXuHao = 1
+
+[node name="EmeyToAttack02" parent="." instance=ExtResource( 5 )]
+position = Vector2( 112, 168 )
+emeyXuHao = 2
+
+[node name="EmeyToAttack03" parent="." instance=ExtResource( 5 )]
+position = Vector2( 208, 184 )
+emeyXuHao = 3
+
+[node name="EmeyToAttack04" parent="." instance=ExtResource( 5 )]
+position = Vector2( 288, 128 )
+emeyXuHao = 4
+
+[node name="EmeyToAttack05" parent="." instance=ExtResource( 6 )]
+position = Vector2( 344, 216 )
+emeyXuHao = 5
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer2"]
+visible = false
+margin_left = 136.0
+margin_top = 248.0
+margin_right = 176.0
+margin_bottom = 268.0
+custom_fonts/font = SubResource( 2 )
+text = "返回"
+
+[connection signal="pressed" from="CanvasLayer2/Button" to="." method="_on_Button_pressed"]
